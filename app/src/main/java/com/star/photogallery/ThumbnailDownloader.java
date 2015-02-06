@@ -34,10 +34,6 @@ public class ThumbnailDownloader<Token> extends HandlerThread {
         mListener = listener;
     }
 
-//    public ThumbnailDownloader() {
-//        super(TAG);
-//    }
-
     public ThumbnailDownloader(Handler responseHandler) {
         super(TAG);
         mResponseHandler = responseHandler;
