@@ -39,6 +39,7 @@ public class ThumbnailDownloader<Token> extends HandlerThread {
         mResponseHandler = responseHandler;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     protected void onLooperPrepared() {
         mHandler = new Handler() {

@@ -35,6 +35,7 @@ public class PollService extends IntentService {
         super(TAG);
     }
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void onHandleIntent(Intent intent) {
         ConnectivityManager connectivityManager = (ConnectivityManager)

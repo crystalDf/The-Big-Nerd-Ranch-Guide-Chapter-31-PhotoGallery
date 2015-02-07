@@ -6,21 +6,21 @@ import android.support.v4.util.LruCache;
 
 public class SingletonLruCache extends LruCache<String, Bitmap> {
 
-    private static SingletonLruCache sSinglettonLruCache;
+    private static SingletonLruCache sSingletonLruCache;
 
     private SingletonLruCache(int maxSize) {
         super(maxSize);
     }
 
     public static SingletonLruCache getInstance(int maxSize) {
-        if (sSinglettonLruCache == null) {
+        if (sSingletonLruCache == null) {
             synchronized (SingletonLruCache.class) {
-                if (sSinglettonLruCache == null) {
-                    sSinglettonLruCache = new SingletonLruCache(maxSize);
+                if (sSingletonLruCache == null) {
+                    sSingletonLruCache = new SingletonLruCache(maxSize);
                 }
             }
         }
-        return sSinglettonLruCache;
+        return sSingletonLruCache;
     }
 
     @Override
@@ -32,12 +32,12 @@ public class SingletonLruCache extends LruCache<String, Bitmap> {
         if (key == null) {
             return null;
         }
-        return sSinglettonLruCache.get(key);
+        return sSingletonLruCache.get(key);
     }
 
     public static void addBitmapToMemoryCache(String key, Bitmap bitmap) {
         if (getBitmapFromMemoryCache(key) == null) {
-            sSinglettonLruCache.put(key, bitmap);
+            sSingletonLruCache.put(key, bitmap);
         }
     }
 }
